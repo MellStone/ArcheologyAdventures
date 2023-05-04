@@ -2008,8 +2008,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543343870}
-  - component: {fileID: 1543343869}
-  - component: {fileID: 1543343868}
   - component: {fileID: 1543343867}
   - component: {fileID: 1543343866}
   - component: {fileID: 1543343865}
@@ -2084,30 +2082,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1543343868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543343864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1543343869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543343864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1543343870
 Transform:
   m_ObjectHideFlags: 0
@@ -2579,20 +2553,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3885572428011848231}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3469287837004809004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148567250486}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cdca4088e539f4792e20604907e814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cube: {fileID: 1193087154}
-  button: {fileID: 919132148567250486}
 --- !u!114 &3469287837004809005
 MonoBehaviour:
   m_ObjectHideFlags: 0
