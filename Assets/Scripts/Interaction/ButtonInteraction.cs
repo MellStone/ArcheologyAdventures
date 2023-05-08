@@ -25,7 +25,7 @@ public class ButtonInteraction : MonoBehaviour
 
     void Update()
     {
-        if (isCubeOnButton && Input.GetKeyDown(KeyCode.E))
+        if (isCubeOnButton)
         {
             // переместить куб на кнопку и отключить его физику
             cube.transform.position = button.transform.position + new Vector3(0, 0.5f, 0);
@@ -35,7 +35,7 @@ public class ButtonInteraction : MonoBehaviour
         {
             // включить физику куба и переместить его обратно
             cube.GetComponent<Rigidbody>().isKinematic = false;
-            cube.transform.position = transform.position + new Vector3(0, 1, 0);
+            //cube.transform.position = transform.position + new Vector3(0, 1, 0);
         }
     }
 }
