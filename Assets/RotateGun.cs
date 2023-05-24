@@ -6,7 +6,8 @@ public class RotateGun : MonoBehaviour
 {
     public GrapplingGun grappling;
     private Quaternion desiredrotation;
-    private float rotationSpeed = 4f;
+    private float rotationSpeed = 6f;
+    private float Slowlyrotation = 2f;
     private void Update()
     {
 
@@ -16,7 +17,7 @@ public class RotateGun : MonoBehaviour
         }
         else
         {
-            desiredrotation = Quaternion.LookRotation(grappling.GetGrapplePoint() - transform.position);
+            desiredrotation = Quaternion.LookRotation(grappling.GetGrapplePoint() - transform.position * Slowlyrotation);
         }
 
         transform.rotation = Quaternion.Lerp(a: transform.rotation, b: desiredrotation, t: Time.deltaTime * rotationSpeed);
