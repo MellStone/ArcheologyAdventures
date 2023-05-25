@@ -2846,7 +2846,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3e376f28776ca4890ec22d50d928ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
+  objects:
+  - {fileID: 586785494}
+  - {fileID: 1543343864}
+  timerCount: 12.2
   isPushed: 0
 --- !u!1 &1932321331
 GameObject:
