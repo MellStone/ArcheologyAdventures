@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Button : MonoBehaviour
 {
     [SerializeField] private GameObject[] objects;
-
+    [SerializeField] private GameObject particles;
     [SerializeField][Range(0f, 20f)] private float timerCount;
 
     [SerializeField] private bool isPushed;
@@ -14,6 +13,7 @@ public class Button : MonoBehaviour
         if (other != null)
         {
             isPushed = true;
+            StopAllCoroutines();
             foreach (var obj in objects)
             {
                 obj.SetActive(false);
@@ -27,10 +27,12 @@ public class Button : MonoBehaviour
     }
     private IEnumerator Timer(float timer)
     {
+        particles.SetActive(true);
         yield return new WaitForSeconds(timer);
         foreach (var obj in objects)
         {
             obj.SetActive(true);
         }
+        particles.SetActive(false);
     }
 }
