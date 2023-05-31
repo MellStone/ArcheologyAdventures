@@ -4,33 +4,30 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-  
     public GameObject arrowPrefab;
     public Transform arrowSpawnPoint;
     public float FireRate = 0.7f;
     public float ReloadTime = 1f;
+
     private bool canFire = true;
 
-    
-
-    public void FixedUpdate()
+    private void Update()
     {
-        
         if (canFire && Input.GetMouseButtonDown(0))
         {
             FireArrow();
-            StartCoroutine(Reload());
+            StartCoroutine(ReloadCoroutine());
         }
-     
-    }
-   
-    void FireArrow()
-    {
-        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
-        arrow.GetComponent<Rigidbody>().AddForce(arrowSpawnPoint.forward * 1000f);
     }
 
-   IEnumerator Reload()
+    private void FireArrow()
+    {
+        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
+        Rigidbody arrowRigidbody = arrow.GetComponent<Rigidbody>();
+        arrowRigidbody.AddForce(arrowSpawnPoint.forward * 1000f);
+    }
+
+    private System.Collections.IEnumerator ReloadCoroutine()
     {
         canFire = false;
         yield return new WaitForSeconds(FireRate);
