@@ -26,9 +26,6 @@ public class GrapplingGun : MonoBehaviour
         {
             StopGrapple();
         }
-         
-       
-        
     }
 
     //Called after Update
