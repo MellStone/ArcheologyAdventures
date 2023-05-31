@@ -11,6 +11,8 @@ public class GrapplingGun : MonoBehaviour
     private float maxDistance = 100f;
     private SpringJoint joint;
 
+    
+
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
@@ -26,6 +28,9 @@ public class GrapplingGun : MonoBehaviour
         {
             StopGrapple();
         }
+         
+       
+        
     }
 
     //Called after Update
