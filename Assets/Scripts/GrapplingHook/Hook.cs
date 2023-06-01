@@ -4,65 +4,52 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    
-    public Transform gunTip;
-    
-    public float hookRange = 5f; // Дальность действия крюка
-    public float hookSpeed = 10f; // Скорость движения объекта при притягивании
 
-    private bool isHooked = false; // Флаг, указывающий, находится ли объект на крюке
-    private Rigidbody hookedObject; // Объект, находящийся на крюке
-    private LineRenderer lr;
+    public Transform gunTip;
+    public float hookRange = 5f;
+    public float hookSpeed = 10f;
+
+    private bool isHooked = false;
+    private Rigidbody hookedObject;
+    private LineRenderer lineRenderer;
+    private Ray ray;
+    private RaycastHit hit;
 
     private void Start()
     {
-        lr = GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        ray = new Ray();
     }
 
-
-    void Update()
+    private void Update()
     {
-        // Проверяем нажатие на левую кнопку мыши
         if (Input.GetMouseButtonDown(0))
         {
-            // Выпускаем луч из центра экрана
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
-            RaycastHit hit;
+            ray.origin = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+            ray.direction = Camera.main.transform.forward;
 
-            // Если луч попал в объект
             if (Physics.Raycast(ray, out hit, hookRange))
             {
-                // Получаем Rigidbody объекта
-                Rigidbody hitRigidbody = hit.collider.GetComponent<Rigidbody>();
+                hookedObject = hit.rigidbody;
 
-                // Если объект имеет Rigidbody и ещё не находится на крюке
-                if (hitRigidbody && !isHooked)
+                if (hookedObject && !isHooked)
                 {
-                    // Захватываем объект
-                    hookedObject = hitRigidbody;
                     isHooked = true;
                 }
             }
         }
 
-        // Проверяем нажатие на правую кнопку мыши
         if (Input.GetMouseButtonDown(1))
         {
-            // Отпускаем объект
             ReleaseObject();
         }
 
-        // Если объект на крюке
         if (isHooked)
         {
-            // Вычисляем направление крюка к объекту
             Vector3 hookDirection = transform.position - hookedObject.transform.position;
-
-            // Притягиваем объект
             hookedObject.AddForce(hookDirection * hookSpeed, ForceMode.Acceleration);
-            
-            
-           DrawHookLine();
+            UpdateHookLine();
         }
         else
         {
@@ -70,26 +57,24 @@ public class Hook : MonoBehaviour
         }
     }
 
-   
-    void ReleaseObject()
+    private void ReleaseObject()
     {
         if (isHooked)
         {
-           
-            // Отпускаем объект
             hookedObject = null;
             isHooked = false;
         }
     }
 
-    void DrawHookLine()
+    private void UpdateHookLine()
     {
-        lr.positionCount = 2;
-        lr.SetPosition(0, gunTip.position);
-        lr.SetPosition(1, hookedObject.transform.position);
+        lineRenderer.SetPosition(0, gunTip.position);
+        lineRenderer.SetPosition(1, hookedObject.transform.position);
     }
-    void ClearHookLine()
+
+    private void ClearHookLine()
     {
-        lr.positionCount = 0;
+        lineRenderer.SetPosition(0, Vector3.zero);
+        lineRenderer.SetPosition(1, Vector3.zero);
     }
 }
