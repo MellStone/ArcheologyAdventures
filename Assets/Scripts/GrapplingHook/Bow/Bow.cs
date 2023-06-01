@@ -20,6 +20,11 @@ public class Bow : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        canFire = true;
+    }
+
     private void FireArrow()
     {
         GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
