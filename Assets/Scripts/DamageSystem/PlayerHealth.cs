@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100; // Максимальное здоровье игрока
-    private int currentHealth; // Текущее здоровье игрока
-
+    public int maxHealth = 100;
+    private int currentHealth;
+    private string sceneName;
     private void Start()
     {
+        sceneName = SceneManager.GetActiveScene().name;
         currentHealth = maxHealth;
     }
 
@@ -16,7 +18,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damageAmount;
 
-        // Проверяем, не упала ли здоровье игрока ниже 0
         if (currentHealth <= 0)
         {
             Die();
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        SceneManager.LoadScene(sceneName);
         // Здесь можно добавить логику для обработки смерти игрока
         // Например, показать экран поражения, перезагрузить уровень и т. д.
 
