@@ -20,6 +20,6 @@ public class BaseGameEventListener : MonoBehaviour, IGameEventListener
 
     private void OnDisable()
     {
-        gameEventToListen.UnregisterListener(this);
+        gameEventToListen.UnregisterListener(this); 
     }
 }

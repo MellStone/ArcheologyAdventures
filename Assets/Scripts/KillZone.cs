@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour
 {
-    public GameEvent gameEventToRaiseOnInteraction;
-
+    public GameObject resetPoint;
     private void OnTriggerEnter(Collider other)
     {
-        gameEventToRaiseOnInteraction.Fire();
+        if(other.tag == "Player")
+        {
+            other.gameObject.transform.position = resetPoint.transform.position;
+        }
     }
 }

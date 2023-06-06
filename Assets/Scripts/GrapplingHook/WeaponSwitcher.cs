@@ -6,7 +6,7 @@ public class WeaponSwitcher : MonoBehaviour
 {
     public GameObject[] weapons;
     private int currentWeaponIndex = 0;
-
+    public bool isBowOpen = false;
     private void Start()
     {
         SwitchWeapon(currentWeaponIndex);
@@ -20,18 +20,21 @@ public class WeaponSwitcher : MonoBehaviour
         {
             currentWeaponIndex = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && currentWeaponIndex != 1)
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && currentWeaponIndex != 1 && isBowOpen)
         {
             currentWeaponIndex = 1;
         }
-        // Добавьте другие клавиши или логику переключения, если необходимо
+        
 
         if (currentWeaponIndex != previousWeaponIndex)
         {
             SwitchWeapon(currentWeaponIndex);
         }
     }
-
+    public void BowIsOpen()
+    {
+        isBowOpen = true;
+    }
     private void SwitchWeapon(int weaponIndex)
     {
         for (int i = 0; i < weapons.Length; i++)
