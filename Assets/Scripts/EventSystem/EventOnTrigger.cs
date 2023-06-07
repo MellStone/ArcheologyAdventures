@@ -7,6 +7,7 @@ public class EventOnTrigger : MonoBehaviour
     public GameEvent gameEventToRaiseOnInteraction;
     private void OnTriggerEnter(Collider other)
     {
-        gameEventToRaiseOnInteraction.Fire();
+        if(other.tag == "Player")
+            gameEventToRaiseOnInteraction.Fire();
     }
 }
