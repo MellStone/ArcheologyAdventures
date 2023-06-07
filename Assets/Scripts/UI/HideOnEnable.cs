@@ -14,4 +14,5 @@ public class HideOnEnable : MonoBehaviour
         yield return new WaitForSeconds(time);
         gameObject.SetActive(false);
     }
+
 }

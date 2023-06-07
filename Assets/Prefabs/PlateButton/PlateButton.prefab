@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2462842448874010052}
   - component: {fileID: 416918735286403340}
   - component: {fileID: 416918735286403341}
-  - component: {fileID: 1770129933}
   m_Layer: 0
   m_Name: PlateButton
   m_TagString: Untagged
@@ -113,24 +112,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0.005}
---- !u!114 &1770129933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4120013386434794513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c3e376f28776ca4890ec22d50d928ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  particles: {fileID: 7662475284004764914}
-  timerCount: 2
-  isPushed: 0
 --- !u!1 &5557911911034909270
 GameObject:
   m_ObjectHideFlags: 0

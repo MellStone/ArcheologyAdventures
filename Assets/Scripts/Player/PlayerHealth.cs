@@ -7,11 +7,20 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public int damage = 20;
     private string sceneName;
     private void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
         currentHealth = maxHealth;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            TakeDamage(damage);
+        }
     }
 
     public void TakeDamage(int damageAmount)

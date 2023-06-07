@@ -9,7 +9,8 @@ public class NextLevel : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
     
-        SceneManager.LoadScene(sceneName); 
+        if (sceneName != null)
+            SceneManager.LoadScene(sceneName); 
 
     }
 }

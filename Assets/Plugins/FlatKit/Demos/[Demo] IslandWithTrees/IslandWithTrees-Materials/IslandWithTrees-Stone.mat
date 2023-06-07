@@ -2,15 +2,19 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: IslandWithTrees-Stone
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
-  m_ShaderKeywords: DR_GRADIENT_ON _CELPRIMARYMODE_SINGLE _TEXTUREBLENDINGMODE_MULTIPLY
-    _UNITYSHADOWMODE_MULTIPLY
+  m_ValidKeywords:
+  - DR_CEL_EXTRA_ON
+  - _CELPRIMARYMODE_SINGLE
+  - _TEXTUREBLENDINGMODE_MULTIPLY
+  - _UNITYSHADOWMODE_MULTIPLY
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -75,8 +79,8 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CameraDistanceImpact: 0
-    - _CelExtraEnabled: 0
-    - _CelNumSteps: 3
+    - _CelExtraEnabled: 1
+    - _CelNumSteps: 5
     - _CelPrimaryEnabled: 1
     - _CelPrimaryMode: 1
     - _Cull: 2
@@ -103,7 +107,7 @@ Material:
     - _GradientAngle: 0
     - _GradientCenterX: 0
     - _GradientCenterY: 0
-    - _GradientEnabled: 1
+    - _GradientEnabled: 0
     - _GradientEnd: 0.55
     - _GradientSize: 10
     - _GradientStart: 1.17
@@ -117,7 +121,7 @@ Material:
     - _OutlineDepthOffset: 0
     - _OutlineEnabled: 0
     - _OutlineScale: 1
-    - _OutlineWidth: 1
+    - _OutlineWidth: 2.38
     - _OverrideLightmapDir: 0
     - _OverrideShadows: 1
     - _OverrideShadowsEnabled: 1
@@ -126,9 +130,9 @@ Material:
     - _RimEnabled: 0
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
-    - _SelfShadingSize: -0.8
+    - _SelfShadingSize: 0.629
     - _SelfShadingSizeExtra: 0.5
-    - _ShadowEdgeSize: 0.05
+    - _ShadowEdgeSize: 0.079
     - _ShadowEdgeSizeExtra: 0.05
     - _ShadowEdgeSmoothness: 0.156
     - _ShadowFalloff: 0.01
@@ -147,13 +151,13 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.8584906, g: 0.7509469, b: 0.3118102, a: 1}
+    - _BaseColor: {r: 0.26415092, g: 0.22979979, b: 0.20035598, a: 1}
     - _Color: {r: 0.8584906, g: 0.7509469, b: 0.31181023, a: 1}
     - _ColorCelShadow: {r: 0.50980395, g: 0.44258052, b: 0.32941177, a: 1}
-    - _ColorDim: {r: 0.6792453, g: 0.6176396, b: 0.1505874, a: 0.85}
-    - _ColorDimCurve: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
-    - _ColorDimExtra: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
-    - _ColorDimSteps: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
+    - _ColorDim: {r: 0, g: 0, b: 0, a: 1}
+    - _ColorDimCurve: {r: 0.2830189, g: 0.2649386, b: 0.19063725, a: 1}
+    - _ColorDimExtra: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 1}
+    - _ColorDimSteps: {r: 0, g: 0, b: 0, a: 0.85}
     - _ColorGradient: {r: 0.65, g: 0.65, b: 0.65, a: 1}
     - _ColorSecondary: {r: 1, g: 0.55879205, b: 0, a: 1}
     - _ColorShadow: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -162,6 +166,6 @@ Material:
     - _FlatRimColor: {r: 0.83879924, g: 0.57112503, b: 0.07421358, a: 1}
     - _FlatSpecularColor: {r: 0.764151, g: 0.6287168, b: 0.075694196, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _UnityShadowColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
   m_BuildTextureStacks: []

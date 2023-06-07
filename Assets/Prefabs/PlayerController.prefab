@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5777095830309656928}
   m_Layer: 8
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
 --- !u!1 &1140544768816038496
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6497464572462371411}
+  - component: {fileID: 370640159}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -296,6 +298,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370640159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140544768816038496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bccd52907a93c84988b83fbe443fd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEventToListen: {fileID: 11400000, guid: 055d53a30c2e8a743979b2761a034c84, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6194733152234272435}
+        m_TargetAssemblyTypeName: WeaponSwitcher, Assembly-CSharp
+        m_MethodName: BowIsOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1295289298265255104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1763,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 6429298769703138543}
   - {fileID: 6429298770272383645}
+  isBowOpen: 0
 --- !u!1 &6194733152352245139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2497,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 6457827234857305832, guid: 935ae409922c0184a849a70a3a1f1d24,
     type: 3}
   arrowSpawnPoint: {fileID: 6194733153678208623}
-  FireRate: 0.7
+  FireRate: 2
   ReloadTime: 1
 --- !u!1 &8163021227298815551
 GameObject:
