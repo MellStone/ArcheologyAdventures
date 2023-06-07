@@ -14415,7 +14415,7 @@ TerrainCollider:
   m_GameObject: {fileID: 1876065515}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 3b7b2037b5add0946a499c5a5d87a341, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 622c1ddc7cd18d841a25403767cc755a, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1876065518
 Terrain:
