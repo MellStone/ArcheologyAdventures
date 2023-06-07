@@ -27,10 +27,5 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene(sceneName);
-        // Здесь можно добавить логику для обработки смерти игрока
-        // Например, показать экран поражения, перезагрузить уровень и т. д.
-
-        // В данном примере просто уничтожаем игровой объект игрока
-        Destroy(gameObject);
     }
 }
