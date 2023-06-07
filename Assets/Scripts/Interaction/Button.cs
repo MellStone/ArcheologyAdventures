@@ -8,49 +8,29 @@ public class Button : MonoBehaviour
     [SerializeField][Range(0f, 20f)] private float timerCount;
 
     private bool isPushed = false;
-    private Coroutine timerCoroutine;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (!isPushed)
+        if (other != null && isPushed != true)
         {
             isPushed = true;
-            if (timerCoroutine != null)
-            {
-                StopCoroutine(timerCoroutine);
-            }
-            timerCoroutine = StartCoroutine(Timer());
+            StopAllCoroutines();
+            ShowHideObject();
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
-        if (isPushed)
-        {
-            if (timerCoroutine == null)
-            {
-                timerCoroutine = StartCoroutine(Timer());
-            }
-        }
+        StartCoroutine(Timer(timerCount));
     }
-
-    private IEnumerator Timer()
+    private IEnumerator Timer(float timer)
     {
         particles.gameObject.SetActive(true);
         particles.Play();
-
-        ShowObject();
-
-        yield return new WaitForSeconds(timerCount);
-
-        ShowObject();
-
-        particles.Stop();
+        yield return new WaitForSeconds(timer);
+        ShowHideObject();
         isPushed = false;
-        timerCoroutine = null;
+        particles.Stop();
     }
-
-    private void ShowObject()
+    private void ShowHideObject()
     {
         foreach (var obj in objects)
         {
