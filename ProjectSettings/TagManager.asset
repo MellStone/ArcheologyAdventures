@@ -3,17 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ground
+  - Building
+  - Arrow
+  - Bullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - WhatIsGround
   - Water
   - UI
-  - 
-  - 
-  - 
+  - TargetObject
+  - WhatIsGrepable
+  - Player
   - 
   - 
   - 
