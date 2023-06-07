@@ -5,41 +5,57 @@ public class Button : MonoBehaviour
 {
     [SerializeField] private GameObject[] objects;
     [SerializeField] private ParticleSystem particles;
-    [SerializeField] [Range(0f, 20f)] private float timerCount;
+    [SerializeField][Range(0f, 20f)] private float timerCount;
 
     private bool isPushed = false;
+    private Coroutine timerCoroutine;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null && !isPushed)
-        {       
+        if (!isPushed)
+        {
             isPushed = true;
-            StopAllCoroutines();
-            foreach (var obj in objects)
+            if (timerCoroutine != null)
             {
-                if(obj.activeSelf)
-                    obj.SetActive(false);
-                else 
-                    obj.SetActive(true);
+                StopCoroutine(timerCoroutine);
+            }
+            timerCoroutine = StartCoroutine(Timer());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (isPushed)
+        {
+            if (timerCoroutine == null)
+            {
+                timerCoroutine = StartCoroutine(Timer());
             }
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        StartCoroutine(Timer(timerCount));
-    }
-    private IEnumerator Timer(float timer)
+
+    private IEnumerator Timer()
     {
         particles.gameObject.SetActive(true);
         particles.Play();
-        yield return new WaitForSeconds(timer);
+
+        ShowObject();
+
+        yield return new WaitForSeconds(timerCount);
+
+        ShowObject();
+
+        particles.Stop();
+        isPushed = false;
+        timerCoroutine = null;
+    }
+
+    private void ShowObject()
+    {
         foreach (var obj in objects)
         {
-            if (obj.activeSelf)
-                obj.SetActive(false);
-            else
-                obj.SetActive(true);
+            bool mode = obj.activeSelf;
+            obj.SetActive(!mode);
         }
-        isPushed = false;
-        particles.Stop();
     }
 }
