@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 451694618}
   - component: {fileID: 451694613}
   - component: {fileID: 451694614}
+  - component: {fileID: 25338208}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -151,3 +152,18 @@ MonoBehaviour:
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!114 &25338208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846384164642495191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbc19767eb18be4d8789f4a2783440b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathMaterial: {fileID: 2100000, guid: b107ff16deb9cf14996927033ee3ddeb, type: 2}
+  hp: 100
+  damage: 35
